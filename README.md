@@ -3,7 +3,7 @@
 23LC1024 are 1 Mbit Serial SRAM devices. It is accessed via a simple SPI compatible serial bus.
 This tutorial code is written for AtMega328p on Atmel Studio 7. However, the code is portable to other microcontrollers. 
 
-It is tested on Atmel Studio 7 <img src="images/atmel studio 7.png" alt="atmel studio 7" width="200" height = "200"/>and Windows 10.
+It is tested on Atmel Studio 7 <img src="images/atmel studio 7.png" alt="atmel studio 7" width="50" height = "50"/>and Windows 10.
 
 TODO : Insert a picture here
 
