@@ -5,7 +5,7 @@ This tutorial code is written for AtMega328p on Atmel Studio 7. However, the cod
 
 It is tested on Atmel Studio 7 <img src="images/atmel studio 7.png" alt="atmel studio 7" width="25" height = "25"/> and Windows 10.
 
-TODO : Insert a picture here
+![23LC1024 SPI SRAM Circuit diagram](https://github.com/shankar-shiv/SPI_Serial_SRAM_23LC1024/blob/master/images/23LC1024%20SRAM%20SPI_schem.png)
 
 ---
 
