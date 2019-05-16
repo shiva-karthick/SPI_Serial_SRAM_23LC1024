@@ -55,7 +55,7 @@ There are 3 modes of operation selected by setting bits 7 and 6 in the MODE regi
 	+ Below picture shows the order of bits (for example : Instruction bits first, 24-bit address second and a data byte lastly) that need to be sent for a sequential write operation
 	![Sequential Write Sequence (SPI Mode)](https://github.com/shankar-shiv/SPI_Serial_SRAM_23LC1024/blob/master/images/sequential%20write%20operation.PNG)
 	+ Below picture shows the order of bits (for example : Instruction bits first, 24-bit address second and a data bytes are read in lastly) for a sequential read operation
-	![Sequential Read Sequence (SPI Mode)](https://github.com/shankar-shiv/SPI_Serial_SRAM_23LC1024/blob/master/images/sequential%20write%20operation.PNG)
+	![Sequential Read Sequence (SPI Mode)](https://github.com/shankar-shiv/SPI_Serial_SRAM_23LC1024/blob/master/images/sequential%20read%20operation.PNG)
 ---
 
 ## Technical information from the 23LC1024 datasheet
@@ -66,3 +66,41 @@ There are 3 modes of operation selected by setting bits 7 and 6 in the MODE regi
 + 4096 pages of 32 bytes
 + All instructions and data are transferred MSB first, LSB last
 + 
+
+---
+
+## Easy to use APIs
+
+All functions are well commented and easy to understand for maximum portability
+
+```c
+// Functions
+
+					/* Initialize SPI to run EEPROM with phase, polarity = 0,0 */
+void initSPI(void);
+
+								/* Generic.  Just loads up HW SPI register and waits */
+void SPI_tradeByte(uint8_t byte);
+
+											/* splits 24-bit address into 3 bytes, sends all 3 bytes */
+void EEPROM_send24BitAddress(uint32_t address);
+
+											/* sends 1 byte */
+void EEPROM_send8BitAddress(uint8_t address);
+
+								/* reads the EEPROM status register */
+uint8_t EEPROM_readStatus(void);
+											/* gets a byte from a given memory location */
+uint8_t EEPROM_readByte(uint32_t address);
+											/* gets 2 bytes from a given memory location */
+uint16_t EEPROM_readWord(uint32_t address);
+													/* writes 1 byte from a given memory location */		
+void EEPROM_writeByte(uint32_t address, uint8_t byte);
+														
+													/* writes 2 bytes from a given memory location */
+void EEPROM_writeWord(uint32_t address, uint16_t word);
+
+							/* sets every byte in memory to zero */
+void EEPROM_clearAll(void);
+
+```
