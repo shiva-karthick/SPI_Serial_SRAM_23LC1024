@@ -50,8 +50,12 @@ There are 3 modes of operation selected by setting bits 7 and 6 in the MODE regi
 + Page
 	+ is selected when bits 7 and 6 in the mode register are set to 10.
 	
-+ Sequential aka Burst (This is the Default Mode)
++ Sequential aka Burst (This is the Default Mode and is discussed here)
 	+ is selected when bits 7 and 6 in the mode register are set to 01.
+	+ Below picture shows the order of bits (for example : Instruction bits first, 24-bit address second and a data byte lastly) that need to be sent for a sequential write operation
+	![Sequential Write Sequence (SPI Mode)](https://github.com/shankar-shiv/SPI_Serial_SRAM_23LC1024/blob/master/images/sequential%20write%20operation.PNG)
+	+ Below picture shows the order of bits (for example : Instruction bits first, 24-bit address second and a data bytes are read in lastly) for a sequential read operation
+	![Sequential Read Sequence (SPI Mode)](https://github.com/shankar-shiv/SPI_Serial_SRAM_23LC1024/blob/master/images/sequential%20write%20operation.PNG)
 ---
 
 ## Technical information from the 23LC1024 datasheet
