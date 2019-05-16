@@ -1,7 +1,7 @@
 # SPI Serial SRAM 23LC1024
 
 23LC1024 are 1 Mbit Serial SRAM devices. The memory is accessed via a simple SPI compatible serial bus.
-This tutorial code is written for AtMega328p. The SPI hardware is used. However, the code is portable to other microcontrollers. 
+This tutorial code is written for AtMega328p. However, the code is portable to other microcontrollers. 
 
 TODO : Insert a picture here
 
@@ -41,9 +41,24 @@ TODO : Insert a picture here
 ```
 ---
 
+## Modes of Operation
+
+There are 3 modes of operation selected by setting bits 7 and 6 in the MODE register.
++ Byte
+	+ is selected when bits 7 and 6 in the mode register are set to 00.
+	
++ Page
+	+ is selected when bits 7 and 6 in the mode register are set to 10.
+	
++ Sequential aka Burst (This is the Default Mode)
+	+ is selected when bits 7 and 6 in the mode register are set to 01.
+---
+
 ## Technical information from the 23LC1024 datasheet
 
 + There is 0 write time
 + 128K x 8-bit organisation
 	+ 32 byte page
 + 4096 pages of 32 bytes
++ All instructions and data are transferred MSB first, LSB last
++ 
