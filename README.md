@@ -135,3 +135,15 @@ void EEPROM_writeWord(uint32_t address, uint16_t word);
 void EEPROM_clearAll(void);
 
 ```
+---
+
+## Development
+
+You can either use Atmel Studio 7 (recommended) or do it manually using Makefiles.
+
+---
+
+## License
+
+The entire codebase is under Apache License
+
