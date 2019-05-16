@@ -10,29 +10,49 @@
 * ---------------Explanation---------------
 * The Address which are required to access the SRAM is a bit crazy. However, they are explained here !
 
-* 0b   0000000		 0 0000 0000 0000 0000				0000 0000
-* (don't care bits)  (the actual address in the SRAM)	(these bits are used to fill up the uint32_t variable)
-* Therefore the above binary number is 0.
+0b 1111111 0 0000 0000 0000 0000 1111 1111 (binary) <-> 4261413119 (decimal) 0th Address
+   <-----> <-------------------> <------->
+    7 don't  17 Actual Address    8 don't care bits
+    care	 bits
+    bits
 
-* 0b   0000000		 0 0000 0000 0000 0001				0000 0000
-* (don't care bits)  (the actual address in the SRAM)	(these bits are used to fill up the uint32_t variable)
-* Therefore the above binary number is 256.
+0b 1111111 0 0000 0000 0000 0001 1111 1111 (binary) <-> 4261413375 (decimal) 1st Address
+   <-----> <-------------------> <------->
+    7 don't   17 Actual Address   8 don't care bits
+    care	  bits
+    bits
 
-* 0b   0000000		 0 0000 0000 0000 0010				0000 0000
-* (don't care bits)  (the actual address in the SRAM)	(these bits are used to fill up the uint32_t variable)
-* Therefore the above binary number is 512.
+0b 1111111 0 0000 0000 0000 0010 1111 1111 (binary) <-> 4261413631 (decimal) 2nd Address
+   <-----> <-------------------> <------->
+    7 don't   17 Actual Address   8 don't care bits
+    care       bits
+    bits
+	   
+0b 1111111 0 0000 0000 0000 0011 1111 1111 (binary) <-> 4261413887 (decimal) 3rd Address
+   <-----> <-------------------> <------->
+    7 don't  17 Actual Address    8 don't care bits are used to fill up the uint32_t
+     care     bits
+     bits
+	   
+0b 1111111 0 0000 0000 0000 0100 1111 1111 (binary) <-> 4261414143 (decimal) 4th Address
+   <-----> <-------------------> <------->
+    7 don't  17 Actual Address    8 don't care bits
+    care      bits
+    bits
+	
+0b 1111111 0 0000 0000 0000 0101 1111 1111 (binary) <-> 4261414399 (decimal) 5th Address
+   <-----> <-------------------> <------->
+    7 don't  17 Actual Address    8 don't care bits
+    care      bits
+    bits
 
-* 0b   0000000		 0 0000 0000 0000 0011				0000 0000
-* (don't care bits)  (the actual address in the SRAM)	(these bits are used to fill up the uint32_t variable)
-* Therefore the above binary number is 768.
-
-* This continues until 0x1F3FF.
+* ... until 0x1FFFF (actual address) or 0b1111111 1 1111 1111 1111 1111 1111 1111 / ‭4294967295‬(decimal) is reached.
 
 * The Address of the SRAM is in multiples of 256. For example,
-* First Address - 0 (decimal)
-* Second Address - 256 (decimal)
-* Third Address - 512 (same as above...)
-* Fourth Address - 768
+* First Address - 4261413119  (decimal)
+* Second Address - 4261413375  (decimal)
+* Third Address - 4261413631  (same as above...)
+* Fourth Address - 4261413887 
 * ... so on and so forth
 */
 
