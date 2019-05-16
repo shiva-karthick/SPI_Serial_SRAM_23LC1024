@@ -1,7 +1,9 @@
 # SPI Serial SRAM 23LC1024
 
-23LC1024 are 1 Mbit Serial SRAM devices. The memory is accessed via a simple SPI compatible serial bus.
-This tutorial code is written for AtMega328p. However, the code is portable to other microcontrollers. 
+23LC1024 are 1 Mbit Serial SRAM devices. It is accessed via a simple SPI compatible serial bus.
+This tutorial code is written for AtMega328p on Atmel Studio 7. However, the code is portable to other microcontrollers. 
+
+It is tested on Atmel Studio 7 ![Atmel Studio 7]() and Windows 10.
 
 TODO : Insert a picture here
 
@@ -41,6 +43,22 @@ TODO : Insert a picture here
 ```
 ---
 
+## Atmel Studio Source Files
+
++ 23LC1024.c , 23LC1024.h
+	+ It contains all the necessary initialisation and SPI functions.
+
++ piDefines.h
+	+ It contains easy to read names instead of register names.
+	
++ setbaud.h , USART.c , USART.h 
+	+ These files above contain the necessary functions to communicate to the PC via USART interface. 
+
++ macros.h
+	+ This file provides some convenience functions.
+
+---
+
 ## Modes of Operation
 
 There are 3 modes of operation selected by setting bits 7 and 6 in the MODE register.
@@ -76,31 +94,34 @@ All functions are well commented and easy to understand for maximum portability
 ```c
 // Functions
 
-					/* Initialize SPI to run EEPROM with phase, polarity = 0,0 */
+/* Initialize SPI to run EEPROM with phase, polarity = 0,0 */
 void initSPI(void);
 
-								/* Generic.  Just loads up HW SPI register and waits */
+/* Generic.  Just loads up HW SPI register and waits */
 void SPI_tradeByte(uint8_t byte);
 
-											/* splits 24-bit address into 3 bytes, sends all 3 bytes */
+/* splits 24-bit address into 3 bytes, sends all 3 bytes */
 void EEPROM_send24BitAddress(uint32_t address);
 
-											/* sends 1 byte */
+/* sends 1 byte */
 void EEPROM_send8BitAddress(uint8_t address);
 
-								/* reads the EEPROM status register */
+/* reads the EEPROM status register */
 uint8_t EEPROM_readStatus(void);
-											/* gets a byte from a given memory location */
+
+/* gets a byte from a given memory location */
 uint8_t EEPROM_readByte(uint32_t address);
-											/* gets 2 bytes from a given memory location */
+
+/* gets 2 bytes from a given memory location */
 uint16_t EEPROM_readWord(uint32_t address);
-													/* writes 1 byte from a given memory location */		
+									
+/* writes 1 byte from a given memory location */		
 void EEPROM_writeByte(uint32_t address, uint8_t byte);
 														
-													/* writes 2 bytes from a given memory location */
+/* writes 2 bytes from a given memory location */
 void EEPROM_writeWord(uint32_t address, uint16_t word);
 
-							/* sets every byte in memory to zero */
+/* sets every byte in memory to zero */
 void EEPROM_clearAll(void);
 
 ```
